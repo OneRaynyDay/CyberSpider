@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Malicious entity graph</title>
+<meta charset="utf-8">
+<style>
+
+.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+#defaultedge {
+  fill: blue;
+}
+
+.link.defaultedge {
+  stroke: blue;
+}
+
+circle {
+  fill: #ccc;
+  stroke: #333;
+  stroke-width: 1.5px;
+}
+
+text {
+  font: 10px sans-serif;
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+
+</style>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script>
+
+var nodes = { };
+nodes["bou.exe (m9)"] = {name: "bou.exe (m9)", color: "red"};
+nodes["chrome.exe (m9)"] = {name: "chrome.exe (m9)", color: "red"};
+nodes["e.exe (m9)"] = {name: "e.exe (m9)", color: "red"};
+nodes["explorer.exe (m5)"] = {name: "explorer.exe (m5)", color: "red"};
+nodes["f.exe (m0)"] = {name: "f.exe (m0)", color: "red"};
+nodes["f.exe (m3)"] = {name: "f.exe (m3)", color: "red"};
+nodes["f.exe (m9)"] = {name: "f.exe (m9)", color: "red"};
+nodes["firefox.exe (m7)"] = {name: "firefox.exe (m7)", color: "red"};
+nodes["fqaa.exe (m6)"] = {name: "fqaa.exe (m6)", color: "red"};
+nodes["gtrp.exe (m1)"] = {name: "gtrp.exe (m1)", color: "red"};
+nodes["hdr.exe (m0)"] = {name: "hdr.exe (m0)", color: "red"};
+nodes["http://aol.com/gth/ksfo/"] = {name: "http://aol.com/gth/ksfo/", color: "orange"};
+nodes["http://ck101.com/cv/"] = {name: "http://ck101.com/cv/", color: "orange"};
+nodes["http://cnzz.com/r/osx/gnqm/"] = {name: "http://cnzz.com/r/osx/gnqm/", color: "orange"};
+nodes["http://ew.com/vb/"] = {name: "http://ew.com/vb/", color: "orange"};
+nodes["http://google.ca/xscb/"] = {name: "http://google.ca/xscb/", color: "orange"};
+nodes["http://google.com"] = {name: "http://google.com", color: "orange"};
+nodes["http://groupon.com/br/y/wwad/"] = {name: "http://groupon.com/br/y/wwad/", color: "orange"};
+nodes["http://k618.cn/mkwv/"] = {name: "http://k618.cn/mkwv/", color: "orange"};
+nodes["http://marca.com/h/hhg/"] = {name: "http://marca.com/h/hhg/", color: "orange"};
+nodes["http://mynet.com/dh/w/xv/"] = {name: "http://mynet.com/dh/w/xv/", color: "orange"};
+nodes["http://playstation.com/vydi/"] = {name: "http://playstation.com/vydi/", color: "orange"};
+nodes["http://pornhub.com/vqz/mnx/z/"] = {name: "http://pornhub.com/vqz/mnx/z/", color: "orange"};
+nodes["http://r10.net/lx/wao/y/"] = {name: "http://r10.net/lx/wao/y/", color: "orange"};
+nodes["http://souq.com/pob/"] = {name: "http://souq.com/pob/", color: "orange"};
+nodes["http://themeforest.net/ghpl/"] = {name: "http://themeforest.net/ghpl/", color: "orange"};
+nodes["http://vimeo.com/rvmf/"] = {name: "http://vimeo.com/rvmf/", color: "orange"};
+nodes["http://watch-series-tv.to/qsiv/igg/"] = {name: "http://watch-series-tv.to/qsiv/igg/", color: "orange"};
+nodes["http://www.boo.edu/abc"] = {name: "http://www.boo.edu/abc", color: "orange"};
+nodes["http://www.foo.com/bar"] = {name: "http://www.foo.com/bar", color: "orange"};
+nodes["http://xda-developers.com/dz/h/"] = {name: "http://xda-developers.com/dz/h/", color: "orange"};
+nodes["http://yandex.kz/tkrk/"] = {name: "http://yandex.kz/tkrk/", color: "orange"};
+nodes["ixzu.exe (m9)"] = {name: "ixzu.exe (m9)", color: "red"};
+nodes["k.exe (m1)"] = {name: "k.exe (m1)", color: "green"};
+nodes["k.exe (m9)"] = {name: "k.exe (m9)", color: "green"};
+nodes["kbm.exe (m9)"] = {name: "kbm.exe (m9)", color: "red"};
+nodes["mvh.exe (m8)"] = {name: "mvh.exe (m8)", color: "red"};
+nodes["nve.exe (m9)"] = {name: "nve.exe (m9)", color: "red"};
+nodes["orog.exe (m8)"] = {name: "orog.exe (m8)", color: "red"};
+nodes["pupy.exe (m4)"] = {name: "pupy.exe (m4)", color: "red"};
+nodes["qqqqqa.exe (m1)"] = {name: "qqqqqa.exe (m1)", color: "red"};
+nodes["qqqqqa.exe (m5)"] = {name: "qqqqqa.exe (m5)", color: "red"};
+nodes["qqqqqb.exe (m5)"] = {name: "qqqqqb.exe (m5)", color: "green"};
+nodes["qqqqqd.exe (m10)"] = {name: "qqqqqd.exe (m10)", color: "red"};
+nodes["qqqqqd.exe (m2)"] = {name: "qqqqqd.exe (m2)", color: "red"};
+nodes["qqqqqf.exe (m2)"] = {name: "qqqqqf.exe (m2)", color: "red"};
+nodes["qqqqqg.exe (m3)"] = {name: "qqqqqg.exe (m3)", color: "red"};
+nodes["qqqqqh.exe (m10)"] = {name: "qqqqqh.exe (m10)", color: "red"};
+nodes["qqqqqh.exe (m3)"] = {name: "qqqqqh.exe (m3)", color: "red"};
+nodes["t.exe (m0)"] = {name: "t.exe (m0)", color: "green"};
+nodes["t.exe (m1)"] = {name: "t.exe (m1)", color: "green"};
+nodes["t.exe (m4)"] = {name: "t.exe (m4)", color: "green"};
+nodes["t.exe (m8)"] = {name: "t.exe (m8)", color: "green"};
+nodes["t.exe (m9)"] = {name: "t.exe (m9)", color: "green"};
+nodes["xxbe.exe (m8)"] = {name: "xxbe.exe (m8)", color: "red"};
+nodes["y.exe (m0)"] = {name: "y.exe (m0)", color: "red"};
+nodes["y.exe (m1)"] = {name: "y.exe (m1)", color: "red"};
+nodes["y.exe (m6)"] = {name: "y.exe (m6)", color: "red"};
+nodes["y.exe (m8)"] = {name: "y.exe (m8)", color: "red"};
+nodes["y.exe (m9)"] = {name: "y.exe (m9)", color: "red"};
+nodes["yf.exe (m4)"] = {name: "yf.exe (m4)", color: "red"};
+
+var links = [
+{source: nodes["f.exe (m0)"], target: nodes["http://google.ca/xscb/"], type: "defaultedge"},
+{source: nodes["hdr.exe (m0)"], target: nodes["http://ew.com/vb/"], type: "defaultedge"},
+{source: nodes["t.exe (m0)"], target: nodes["http://souq.com/pob/"], type: "defaultedge"},
+{source: nodes["y.exe (m0)"], target: nodes["hdr.exe (m0)"], type: "defaultedge"},
+{source: nodes["gtrp.exe (m1)"], target: nodes["http://xda-developers.com/dz/h/"], type: "defaultedge"},
+{source: nodes["k.exe (m1)"], target: nodes["gtrp.exe (m1)"], type: "defaultedge"},
+{source: nodes["qqqqqa.exe (m1)"], target: nodes["http://www.foo.com/bar"], type: "defaultedge"},
+{source: nodes["t.exe (m1)"], target: nodes["http://aol.com/gth/ksfo/"], type: "defaultedge"},
+{source: nodes["y.exe (m1)"], target: nodes["http://yandex.kz/tkrk/"], type: "defaultedge"},
+{source: nodes["http://google.com"], target: nodes["qqqqqh.exe (m10)"], type: "defaultedge"},
+{source: nodes["qqqqqd.exe (m10)"], target: nodes["http://google.com"], type: "defaultedge"},
+{source: nodes["http://www.boo.edu/abc"], target: nodes["qqqqqf.exe (m2)"], type: "defaultedge"},
+{source: nodes["qqqqqf.exe (m2)"], target: nodes["qqqqqd.exe (m2)"], type: "defaultedge"},
+{source: nodes["f.exe (m3)"], target: nodes["http://ck101.com/cv/"], type: "defaultedge"},
+{source: nodes["qqqqqg.exe (m3)"], target: nodes["http://www.boo.edu/abc"], type: "defaultedge"},
+{source: nodes["qqqqqh.exe (m3)"], target: nodes["qqqqqg.exe (m3)"], type: "defaultedge"},
+{source: nodes["pupy.exe (m4)"], target: nodes["http://marca.com/h/hhg/"], type: "defaultedge"},
+{source: nodes["t.exe (m4)"], target: nodes["pupy.exe (m4)"], type: "defaultedge"},
+{source: nodes["t.exe (m4)"], target: nodes["yf.exe (m4)"], type: "defaultedge"},
+{source: nodes["yf.exe (m4)"], target: nodes["http://mynet.com/dh/w/xv/"], type: "defaultedge"},
+{source: nodes["qqqqqa.exe (m5)"], target: nodes["explorer.exe (m5)"], type: "defaultedge"},
+{source: nodes["qqqqqb.exe (m5)"], target: nodes["qqqqqa.exe (m5)"], type: "defaultedge"},
+{source: nodes["fqaa.exe (m6)"], target: nodes["http://themeforest.net/ghpl/"], type: "defaultedge"},
+{source: nodes["y.exe (m6)"], target: nodes["fqaa.exe (m6)"], type: "defaultedge"},
+{source: nodes["http://google.com"], target: nodes["firefox.exe (m7)"], type: "defaultedge"},
+{source: nodes["mvh.exe (m8)"], target: nodes["http://r10.net/lx/wao/y/"], type: "defaultedge"},
+{source: nodes["orog.exe (m8)"], target: nodes["http://vimeo.com/rvmf/"], type: "defaultedge"},
+{source: nodes["t.exe (m8)"], target: nodes["xxbe.exe (m8)"], type: "defaultedge"},
+{source: nodes["t.exe (m8)"], target: nodes["y.exe (m8)"], type: "defaultedge"},
+{source: nodes["xxbe.exe (m8)"], target: nodes["mvh.exe (m8)"], type: "defaultedge"},
+{source: nodes["y.exe (m8)"], target: nodes["http://cnzz.com/r/osx/gnqm/"], type: "defaultedge"},
+{source: nodes["y.exe (m8)"], target: nodes["orog.exe (m8)"], type: "defaultedge"},
+{source: nodes["bou.exe (m9)"], target: nodes["http://k618.cn/mkwv/"], type: "defaultedge"},
+{source: nodes["e.exe (m9)"], target: nodes["http://playstation.com/vydi/"], type: "defaultedge"},
+{source: nodes["f.exe (m9)"], target: nodes["kbm.exe (m9)"], type: "defaultedge"},
+{source: nodes["http://google.com"], target: nodes["chrome.exe (m9)"], type: "defaultedge"},
+{source: nodes["ixzu.exe (m9)"], target: nodes["bou.exe (m9)"], type: "defaultedge"},
+{source: nodes["k.exe (m9)"], target: nodes["http://groupon.com/br/y/wwad/"], type: "defaultedge"},
+{source: nodes["k.exe (m9)"], target: nodes["http://pornhub.com/vqz/mnx/z/"], type: "defaultedge"},
+{source: nodes["kbm.exe (m9)"], target: nodes["http://watch-series-tv.to/qsiv/igg/"], type: "defaultedge"},
+{source: nodes["nve.exe (m9)"], target: nodes["e.exe (m9)"], type: "defaultedge"},
+{source: nodes["t.exe (m9)"], target: nodes["ixzu.exe (m9)"], type: "defaultedge"},
+{source: nodes["y.exe (m9)"], target: nodes["f.exe (m9)"], type: "defaultedge"},
+{source: nodes["y.exe (m9)"], target: nodes["nve.exe (m9)"], type: "defaultedge"}
+];
+
+var width = 960,
+    height = 500;
+
+var force = d3.layout.force()
+    .nodes(d3.values(nodes))
+    .links(links)
+    .size([width, height])
+    .linkDistance(60)
+    .charge(-300)
+    .on("tick", tick)
+    .start();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+// Per-type markers, as they don't inherit styles.
+svg.append("defs").selectAll("marker")
+    .data(["defaultedge"])
+  .enter().append("marker")
+    .attr("id", function(d) { return d; })
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 15)
+    .attr("refY", -1.5)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("orient", "auto")
+  .append("path")
+    .attr("d", "M0,-5L10,0L0,5");
+
+var path = svg.append("g").selectAll("path")
+    .data(force.links())
+  .enter().append("path")
+    .attr("class", function(d) { return "link " + d.type; })
+    .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+
+var circle = svg.append("g").selectAll("circle")
+    .data(force.nodes())
+  .enter().append("circle")
+    .attr("r", 9)
+    .call(force.drag)
+    .style("fill", function(d) { return d.color; } );
+
+var text = svg.append("g").selectAll("text")
+    .data(force.nodes())
+  .enter().append("text")
+    .attr("x", 8)
+    .attr("y", ".31em")
+    .text(function(d) { return d.name; });
+
+// Use elliptical arc path segments to doubly-encode directionality.
+function tick() {
+  path.attr("d", linkArc);
+  circle.attr("transform", transform);
+  text.attr("transform", transform);
+}
+
+function linkArc(d) {
+  var dx = d.target.x - d.source.x,
+      dy = d.target.y - d.source.y,
+      dr = Math.sqrt(dx * dx + dy * dy);
+  return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
+}
+
+function transform(d) {
+  return "translate(" + d.x + "," + d.y + ")";
+}
+
+</script>
+</body>
+</html>

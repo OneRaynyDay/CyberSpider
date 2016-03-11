@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+time ./p4tester -b mydb 100000
+time ./p4tester -i mydb outputlog.txt
+time ./p4tester -p mydb omit.txt > omitted.txt
+time ./p4tester -s mydb indicators.txt 500 stuffFound_omitted.txt > testCrawl.txt
+

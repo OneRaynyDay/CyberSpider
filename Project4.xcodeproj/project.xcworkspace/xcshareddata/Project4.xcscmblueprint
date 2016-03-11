@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F066091986610E01BED3885743637A89372BC5D0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EDE927A5BE01F4092B7044F85B49ACFDBB7AF330" : 0,
+    "F066091986610E01BED3885743637A89372BC5D0" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "54973B59-C8B8-48BE-9C44-886A34EF3F82",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EDE927A5BE01F4092B7044F85B49ACFDBB7AF330" : "",
+    "F066091986610E01BED3885743637A89372BC5D0" : "Project4\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Project4",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Project4.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/OneRaynyDay\/CS-32.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EDE927A5BE01F4092B7044F85B49ACFDBB7AF330"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/OneRaynyDay\/CyberSpider.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F066091986610E01BED3885743637A89372BC5D0"
+    }
+  ]
+}
